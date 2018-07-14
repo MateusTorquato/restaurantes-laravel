@@ -1,0 +1,39 @@
+# Criar projeto
+Laravel new <nome>
+# Criar a application ley
+php artisan key:generate
+#Subir serviço
+php artisan serve
+
+#Migrations
+# Iniciar migrate
+php artisan migrate:install
+# Realiza migração
+php artisan migrate  --seed 
+# Criar uma migrate
+php artisan make:migration <create_table_produtos> --create=produtos
+# Rollback
+php artisan migrate:rollback --step=2
+# Resetar tudo
+php artisan migrate:reset
+#Rodar todos os comandos necessários
+php artisan migrate:refresh  --seed
+
+# Criar controller
+php artisan make:controller <UserController> --resource
+# Criar model
+php artisan make:model <Produto>
+# Criar request
+php artisan make:request <ProdutoRequest>
+# Criar autentiação toda
+php artisan make:auth
+
+# Criar Seeder
+php artisan make:seeder <ProdutosTableSeeder>
+# Realizar o seed
+php artisan db:seed
+
+# Entrar no mysql 
+mysql -u root -p
+# gerar banco mySQL
+create database projeto-teste collate utf8_unicode_ci
