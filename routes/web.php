@@ -18,9 +18,15 @@ Route::get('/', function () {
 
 // Testes
 
-Route::get('/users', 'Test\UserController@index');
-
-Route::get('/users/{id}', 'Test\UserController@show');
+//Teste prefix
+Route::prefix('users')->group(function(){
+  Route::get('/', function(){
+    return 'users index';
+  });
+});
+// Route::get('/users', 'Test\UserController@index');
+// Route::get('/users/{id}', 'Test\UserController@show');
+Route::resource('/users', 'Test\UserController');
 
 Route::get('/test/show', function () {
     // $sql = 'SELECT * FROM USERS WHERE ID = ?';
