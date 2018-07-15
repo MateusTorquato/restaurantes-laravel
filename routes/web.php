@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// Testes
+
+Route::get('/users', 'Test\UserController@index');
+
+Route::get('/users/{id}', 'Test\UserController@show');
+
 Route::get('/test/show', function () {
     // $sql = 'SELECT * FROM USERS WHERE ID = ?';
     // $users = DB::select($sql, [4]);
