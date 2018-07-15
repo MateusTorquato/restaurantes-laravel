@@ -19,14 +19,19 @@ Route::get('/', function () {
 // Testes
 
 //Teste prefix
-Route::prefix('users')->group(function(){
+Route::prefix('users')->name('users_')->group(function(){
+
   Route::get('/', function(){
     return 'users index';
-  })->name('users_index');
+  })->name('index'); //users_index
+
+  Route::get('/1', function(){
+    return 'users 1';
+  })->name('single');//users_index
 });
 // Route::get('/users', 'Test\UserController@index');
 // Route::get('/users/{id}', 'Test\UserController@show');
-Route::resource('/users', 'Test\UserController');
+// Route::resource('/users', 'Test\UserController');
 
 Route::get('/test/show', function () {
     // $sql = 'SELECT * FROM USERS WHERE ID = ?';
