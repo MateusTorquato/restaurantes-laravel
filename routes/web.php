@@ -16,5 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('hello/{name}', function($name){
-  return view('hello',['name' => $name] );
+  // return view('hello',['name' => $name] );
+  return view('hello', compact($name) );
 });
