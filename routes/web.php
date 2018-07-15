@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::prefix('users')->group(function(){
   Route::get('/', function(){
     return 'users index';
-  });
+  })->name('users_index');
 });
 // Route::get('/users', 'Test\UserController@index');
 // Route::get('/users/{id}', 'Test\UserController@show');
