@@ -15,7 +15,8 @@
 
   <div class="content">
       <div class="title m-b-md">
-          Laravel
+          @php($teste = 'Mateus')
+          @include('includes/any')
       </div>
 
       <div class="links">
@@ -25,5 +26,9 @@
           <a href="https://forge.laravel.com">Forge</a>
           <a href="https://github.com/laravel/laravel">GitHub</a>
       </div>
+      <hr>
+      @for ($i = 0; $i < 10; $i++)
+        {{ $i }}
+      @endfor
   </div>
 @endsection
