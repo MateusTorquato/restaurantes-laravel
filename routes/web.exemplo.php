@@ -98,3 +98,22 @@ Route::get('show/{name?}', function($name = 'Mateus'){
     return 'teste';
   return $name;
 });
+
+// Middleware
+
+// Route::get('/middleware', function () {
+//     return 'teste';
+// })->middleware('test');
+
+Route::group(['middleware' => ['teste', 'auth']], function(){
+  Route::get('middle', function(){ 
+      return 'middle';
+  });
+  Route::get('middle/2', function(){ 
+      return 'middle/2';
+  });
+});
+
+Route::get('/middleware', function () {
+  return 'teste';
+})->middleware('auth', App\Http\Middleware\TestCheck::class); //Pode passar mais de um. Pode usar grupos também (ex, 'web')
