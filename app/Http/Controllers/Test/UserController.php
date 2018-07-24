@@ -12,8 +12,16 @@ class UserController extends Controller
     $users = User::all();
     return $users;
   }
-  public function show($id){
+  public function show($id, Request $request){
     $user = User::findOrFail($id);
+    
+    // $headers = $request->headers->all();
+    // $nome = $request->query('nome');
+    // return response('Hello world', 200)
+    //        ->header('Content-Type', 'application/json');
+    // return response('Hello world', 200)
+    //        ->withHeaders(['Content-Type' => 'text/plain']);
+    
     return $user;
   }
 }
