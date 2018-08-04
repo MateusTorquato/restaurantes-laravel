@@ -6,7 +6,7 @@
     {{ csrf_field() }}
     <p>
         <label>Nome do restaurante</label>
-        <input type="text" name="name">
+        <input type="text" name="nome">
     </p>
     <p>
         <label>Endereço</label>
