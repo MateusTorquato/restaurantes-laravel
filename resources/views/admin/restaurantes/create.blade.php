@@ -2,7 +2,8 @@
 <hr>
 
 <form action="{{ route('restaurante.store') }}" method="POST">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
+    {{ csrf_field() }}
     <p>
         <label>Nome do restaurante</label>
         <input type="text" name="name">
