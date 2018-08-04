@@ -1,7 +1,8 @@
 <h1>Inserção de Restaurantes</h1>
 <hr>
 
-<form action="">
+<form action="{{ route('restaurante.store') }}" method="POST">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <p>
         <label>Nome do restaurante</label>
         <input type="text" name="name">

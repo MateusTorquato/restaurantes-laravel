@@ -14,12 +14,12 @@ class RestauranteController extends Controller
 
     public function create()
     {
-        //
+        return view('admin.restaurantes.create');
     }
 
     public function store(Request $request)
     {
-        return view('admin.restaurantes.store');
+        dd($request);
     }
 
     public function show($id)
