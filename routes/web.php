@@ -18,5 +18,7 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function(){
    Route::get('restaurantes', 'Admin\\RestauranteController@index')->name('restaurante.index');
    Route::get('restaurantes/new', 'Admin\\RestauranteController@create')->name('restaurante.new');
+   Route::get('restaurantes/edit/{restaurante}', 'Admin\\RestauranteController@edit')->name('restaurante.edit');
    Route::post('restaurantes/store', 'Admin\\RestauranteController@store')->name('restaurante.store');
+   Route::post('restaurantes/update/{restaurante}', 'Admin\\RestauranteController@update')->name('restaurante.update');
 });

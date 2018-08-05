@@ -27,19 +27,18 @@ class RestauranteController extends Controller
         print 'Restaurante criado com sucesso';
     }
 
-    public function show($id)
+    public function edit(Restaurante $restaurante)
     {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
+        return view('admin.restaurantes.edit', compact('restaurante'));        
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $restauranteDados = $request->all();
+        $restaurante = Restaurante::findOrFail($id);
+        $restaurante->update($restauranteDados);
+
+        print 'Restaurante atualizado com sucesso';
     }
 
     public function destroy($id)
