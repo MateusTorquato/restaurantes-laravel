@@ -10,7 +10,8 @@ class RestauranteController extends Controller
 {
     public function index()
     {
-        //
+        $restaurantes = Restaurante::all();
+        return view('admin.restaurantes.index', compact('restaurantes'));
     }
 
     public function create()
@@ -43,6 +44,9 @@ class RestauranteController extends Controller
 
     public function destroy($id)
     {
-        //
+        $restaurante = Restaurante::findOrFail($id);
+        $restaurante->delete();
+
+        print 'Restaurante removido com sucesso';
     }
 }
