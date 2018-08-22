@@ -33,9 +33,16 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('update/{id}', 'UserController@update')->name('user.update');
             Route::post('remove/{id}', 'UserController@destroy')->name('user.destroy');
         });
+        Route::prefix('menus')->group(function(){
+            Route::get('/', 'MenuController@index')->name('menu.index');
+            Route::get('new', 'MenuController@create')->name('menu.new');
+            Route::get('edit/{menu}', 'MenuController@edit')->name('menu.edit');
+            Route::post('store', 'MenuController@store')->name('menu.store');
+            Route::post('update/{id}', 'MenuController@update')->name('menu.update');
+            Route::post('remove/{id}', 'MenuController@destroy')->name('menu.destroy');
+        });
     });
 });
-
 
 Auth::routes();
 
