@@ -30,7 +30,8 @@ class UserController extends Controller
         $user = new User();
         $user->create($userDados);
 
-        print 'User criado com sucesso';
+        flash('Usuário criado com sucesso')->success();
+        return redirect()->route('restaurante.index');
     }
 
     public function edit(User $user)
@@ -48,7 +49,8 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->update($userDados);
 
-        print 'User atualizado com sucesso';
+        flash('Usuário atualizado com sucesso')->success();
+        return redirect()->route('restaurante.index');
     }
 
     public function destroy($id)
@@ -56,6 +58,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        print 'User removido com sucesso';
+        flash('Usuário removido com sucesso')->success();
+        return redirect()->route('restaurante.index');
     }
 }
