@@ -16,14 +16,24 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::prefix('admin')->group(function(){
-        Route::get('restaurantes', 'Admin\\RestauranteController@index')->name('restaurante.index');
-        Route::get('restaurantes/new', 'Admin\\RestauranteController@create')->name('restaurante.new');
-        Route::get('restaurantes/edit/{restaurante}', 'Admin\\RestauranteController@edit')->name('restaurante.edit');
-        Route::post('restaurantes/store', 'Admin\\RestauranteController@store')->name('restaurante.store');
-        Route::post('restaurantes/update/{id}', 'Admin\\RestauranteController@update')->name('restaurante.update');
-        Route::post('restaurantes/remove/{id}', 'Admin\\RestauranteController@destroy')->name('restaurante.destroy');
-     });
+    Route::prefix('admin')->namespace('Admin')->group(function(){
+        Route::prefix('restaurantes')->group(function(){
+            Route::get('/', 'RestauranteController@index')->name('restaurante.index');
+            Route::get('new', 'RestauranteController@create')->name('restaurante.new');
+            Route::get('edit/{restaurante}', 'RestauranteController@edit')->name('restaurante.edit');
+            Route::post('store', 'RestauranteController@store')->name('restaurante.store');
+            Route::post('update/{id}', 'RestauranteController@update')->name('restaurante.update');
+            Route::post('remove/{id}', 'RestauranteController@destroy')->name('restaurante.destroy');
+        });
+        Route::prefix('users')->group(function(){
+            Route::get('/', 'UserController@index')->name('user.index');
+            Route::get('new', 'UserController@create')->name('user.new');
+            Route::get('edit/{user}', 'UserController@edit')->name('user.edit');
+            Route::post('store', 'UserController@store')->name('user.store');
+            Route::post('update/{id}', 'UserController@update')->name('user.update');
+            Route::post('remove/{id}', 'UserController@destroy')->name('user.destroy');
+        });
+    });
 });
 
 
