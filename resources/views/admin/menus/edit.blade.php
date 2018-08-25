@@ -24,6 +24,26 @@
                 @endif
             </span>    
         </p>
+
+        <p class="form-group">
+            <label>Restaurante</label>
+            <select name="restaurante_id" class="form-control">
+                @foreach ($restaurantes as $r)
+                    <option value="{{ $r->id }}"
+                    @if ($menu->restaurante_id == $r->id)
+                        selected
+                    @endif
+                        
+                    >{{ $r->nome }}</option>
+                @endforeach
+            </select>
+            <span class="invalid-feedback">
+                @if($errors->has('restaurante_id'))
+                    <strong> {{ $errors->first('restaurante_id') }} </strong>
+                @endif
+            </span>    
+        </p>
+        
         <input type="submit" value="Atualizar" class="btn btn-success btn-lg">
     </form>
 @endsection

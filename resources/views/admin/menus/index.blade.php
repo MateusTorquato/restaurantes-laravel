@@ -8,6 +8,7 @@
             <tr>
                 <th>#</th>
                 <th>Nome</th>
+                <th>Restaurante</th>
                 <th>Criado em</th>
                 <th>Ações</th>
             </tr>
@@ -17,6 +18,11 @@
                 <tr>
                     <td>{{ $m->id }}</td>
                     <td>{{ $m->nome }}</td>
+                    <td>
+                        <a href="{{ route('restaurante.edit', ['restaurante' => $m->restaurante->id]) }}">
+                            {{ $m->restaurante->nome }}
+                        </a>    
+                    </td>
                     <td>{{ $m->created_at }}</td>
                     <td>
                         <form action="{{ route('menu.destroy', ['id' => $m->id]) }}" method="post">

@@ -26,6 +26,22 @@
                 @endif
             </span>    
         </p>
+
+        <p class="form-group">
+            <label>Restaurante</label>
+            <select name="restaurante_id" class="form-control">
+                <option value=""> Selecione um restaurante </option> 
+                @foreach ($restaurantes as $r)
+                    <option value="{{ $r->id }}">{{ $r->nome }}</option>
+                @endforeach
+            </select>
+            <span class="invalid-feedback">
+                @if($errors->has('restaurante_id'))
+                    <strong> {{ $errors->first('restaurante_id') }} </strong>
+                @endif
+            </span>    
+        </p>
+
         <input type="submit" value="Cadastrar" class="btn btn-success btn-lg">
     </form>
 @endsection
