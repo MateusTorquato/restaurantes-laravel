@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/restaurante/{id}', 'HomeController@get')->name('home.single');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::prefix('admin')->namespace('Admin')->group(function(){

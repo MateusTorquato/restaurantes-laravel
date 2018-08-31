@@ -21,6 +21,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function get($id)
+    {
+        $restaurante = Restaurante::findOrFail($id);
+        return view('single', compact('restaurante'));
+    }
+
     public function index()
     {
         $restaurantes = Restaurante::paginate(10);
