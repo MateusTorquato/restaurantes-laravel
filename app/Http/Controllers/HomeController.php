@@ -21,10 +21,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function get($id)
+    public function get(Restaurante $slug)
     {
-        $restaurante = Restaurante::findOrFail($id);
-        return view('single', compact('restaurante'));
+        // $restaurante = Restaurante::whereSlug($slug)->first();
+        $restaurante = $slug;
+        return view('single', compact('restaurante'));    
     }
 
     public function index()
