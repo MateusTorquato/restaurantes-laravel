@@ -15,6 +15,11 @@ class Restaurante extends Model
         return $this->hasMany(Menu::class);
     }
 
+    public function fotos()
+    {
+        return $this->hasMany(RestauranteFoto::class);
+    }
+
     public function owner()
     {
         return $this->belongsTo(User::class);

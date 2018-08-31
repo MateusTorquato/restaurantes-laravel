@@ -23,6 +23,9 @@ Route::group(['middleware' => 'auth'], function () {
             Route::post('store', 'RestauranteController@store')->name('restaurante.store');
             Route::post('update/{id}', 'RestauranteController@update')->name('restaurante.update');
             Route::post('remove/{id}', 'RestauranteController@destroy')->name('restaurante.destroy');
+
+            Route::get('fotos/{id}', 'RestauranteFotoController@index')->name('restaurante.foto');
+            Route::post('fotos/{id}', 'RestauranteFotoController@save')->name('restaurante.foto.save');
         });
         Route::prefix('users')->group(function(){
             Route::get('/', 'UserController@index')->name('user.index');

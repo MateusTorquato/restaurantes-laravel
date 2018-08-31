@@ -23,6 +23,7 @@
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <a href="{{ route('restaurante.edit', ['id' => $r->id]) }}" class="btn btn-primary">Editar</a>
+                                <a href="{{ route('restaurante.foto', ['id' => $r->id]) }}" class="btn btn-warning">Fotos</a>
                                 <input type="submit" value="Excluir" class="btn btn-danger">
                             </div>     
                         </form>
